@@ -13,6 +13,7 @@ jobs:
           command: |
             pip install pytest
             pip install requests
+            pip install nose
             pytest --junitxml=test-results/junit.xml test.py
       - store_test_results:
           path: test-results
