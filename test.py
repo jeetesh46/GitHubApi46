@@ -10,7 +10,7 @@ class TestGithub(unittest.TestCase):
     def test_github_fetch_data_with_mocked_response(self, mock_get):
         # create a mock response
         mock_response = MagicMock()
-        mock_response.text = '[{"name": "repo1"}, {"name": "repo2"}, {"name": "repo3"}]'
+        mock_response.text = '[{"name": "test1"}, {"name": "test2"}, {"name": "test3"}]'
         mock_response.status_code = 200
         mock_get.return_value = mock_response
 
@@ -18,14 +18,14 @@ class TestGithub(unittest.TestCase):
         response = github_fetch_data('testing1')
 
         # assert the output
-        expected_output = {'repo1': 3, 'repo2': 3, 'repo3': 3}
+        expected_output = {'test1': 3, 'test2': 3, 'test3': 3}
         assert_dict_equal(response, expected_output)
 
     @patch('github.requests.get')
     def test_github_fetch_data_getting_called(self, mock_get):
         # create a mock response
         mock_response = MagicMock()
-        mock_response.text = '[{"name": "repo1"}, {"name": "repo2"}, {"name": "repo3"}]'
+        mock_response.text = '[{"name": "test1"}, {"name": "test2"}, {"name": "test3"}]'
         mock_response.status_code = 200
         mock_get.return_value = mock_response
 
